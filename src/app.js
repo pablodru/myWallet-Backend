@@ -30,7 +30,7 @@ const schemaLogin = joi.object({
 });
 
 const schemaTransation = joi.object({
-    value: joi.number().precision(2).required(),
+    value: joi.number().greater(0).precision(2).required(),
     description: joi.string().required(),
     type: joi.string().valid("in", "out").required()
 })
