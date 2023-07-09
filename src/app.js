@@ -134,5 +134,5 @@ app.get("/transation", async (req, res) => {
 })
 
 
-const PORT = 5000;
-app.listen(PORT, console.log(`Rodando na porta ${PORT}`));
+const port = process.env.PORT;
+app.listen(PORT, console.log(`Rodando na porta ${port}`));
