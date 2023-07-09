@@ -135,4 +135,4 @@ app.get("/transation", async (req, res) => {
 
 
 const port = process.env.PORT;
-app.listen(PORT, console.log(`Rodando na porta ${port}`));
+app.listen(port, console.log(`Rodando na porta ${port}`));
