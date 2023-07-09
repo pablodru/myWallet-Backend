@@ -10,10 +10,7 @@ export async function newTransaction (req, res) {
     const token = authorization?.replace("Bearer ", "");
 
     if( !token ) return res.sendStatus(401);
-
-    const validation = schemaTransation.validate(req.body, { abortEarly: false });
-    if( validation.error ) return res.status(422).send("Todos os campos são obrigatórios!");
-
+    
     try {
 
         const session = await db.collection("session").findOne({ token });

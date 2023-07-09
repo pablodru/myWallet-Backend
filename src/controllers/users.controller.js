@@ -1,12 +1,9 @@
 import { db } from '../database/database.connection.js';
 import bcrypt from 'bcrypt';
 import { v4 as uuid } from 'uuid';
-import { schemaLogin, schemaRegister } from '../schemas/users.schemas.js';
 
 export async function signup (req, res) {
     const { name, email, password } = req.body;
-    const validation = schemaRegister.validate( req.body, { abortEarly: false });
-    if( validation.error ) return res.status(422).send({message: "Todos os campos são obrigatórios! A senha deve ter no mínimo 3 caracteres."})
 
     try {
 
@@ -26,8 +23,6 @@ export async function signup (req, res) {
 
 export async function signin (req,res) {
     const { email, password } = req.body;
-    const validation = schemaLogin.validate(req.body, { abortEarly: false });
-    if( validation.error ) return res.status(422).send({ message: "Todos os campos são obrigatórios e o email deve ser válido."});
 
     try{
 
